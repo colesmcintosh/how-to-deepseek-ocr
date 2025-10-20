@@ -1,6 +1,6 @@
 # DeepSeek-OCR: Contexts Optical Compression on A100
 
-Hands-on notebook implementation of the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf). This project demonstrates how to compress document images to ~100 vision tokens (10-20x fewer than text) and decode with 97% OCR precision at 10x compression ratio.
+Hands-on tutorial for using the DeepSeek-OCR model from the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf). This notebook demonstrates how to compress document images to ~100 vision tokens (10-20x fewer than text) and decode with 97% OCR precision at 10x compression ratio.
 
 ## Overview
 
@@ -93,7 +93,7 @@ pip install https://github.com/vllm-project/vllm/releases/download/v0.8.5/vllm-0
 
 ## Repository Contents
 
-- `deepseek-ocr.ipynb` - Main Jupyter notebook with step-by-step implementation
+- `deepseek-ocr.ipynb` - Main Jupyter notebook with step-by-step tutorial
 - `sample_images/` - Sample document images for testing
   - `sample_image.png` - DeepSeek-OCR paper abstract (1908×1358)
 - `result/` - Example output from the notebook
