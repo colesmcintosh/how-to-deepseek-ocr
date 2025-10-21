@@ -1,6 +1,6 @@
-# DeepSeek-OCR: Contexts Optical Compression on A100
+# DeepSeek-OCR: Running on a Single A100 40GB GPU
 
-Hands-on tutorial for using the DeepSeek-OCR model from the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf). This notebook demonstrates how to compress document images to ~100 vision tokens (10-20x fewer than text) and decode with 97% OCR precision at 10x compression ratio.
+Hands-on tutorial showing how to run the DeepSeek-OCR model on a single A100 40GB GPU. Based on the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf), this notebook demonstrates how to compress document images to ~100 vision tokens (10-20x fewer than text) and decode with 97% OCR precision at 10x compression ratio.
 
 ## Overview
 
@@ -85,12 +85,6 @@ cd ..
 pip install flash-attn==2.7.3 --no-build-isolation
 ```
 
-### 4. Optional: Install vLLM for Batch Processing
-
-```bash
-pip install https://github.com/vllm-project/vllm/releases/download/v0.8.5/vllm-0.8.5+cu118-cp312-cp312-linux_x86_64.whl
-```
-
 ## Repository Contents
 
 - `deepseek-ocr.ipynb` - Main Jupyter notebook with step-by-step tutorial
@@ -98,6 +92,7 @@ pip install https://github.com/vllm-project/vllm/releases/download/v0.8.5/vllm-0
   - `sample_image.png` - DeepSeek-OCR paper abstract (1908×1358)
 - `result/` - Example output from the notebook
   - `result_with_boxes.jpg` - Annotated image with bounding boxes showing detected regions
+  - `result.md` - Markdown of the extracted text
 
 ## Quick Start Example
 
@@ -225,47 +220,7 @@ prompt = "<image>\n<|grounding|>Convert the document to markdown."
 - **Efficiency**: Better than MinerU2.0 (6000+ tokens/page) using <800 tokens
 - **Scale**: Production-ready for 200k pages/day
 
-## Troubleshooting
-
-### Runtime Errors
-- **ABI mismatch**: Restart runtime after installation
-- **Flash Attention fails**: Use fallback `pip install flash-attn==2.7.3`
-- **Check GPU**: Run `nvidia-smi` to verify A100 availability
-
-### Out of Memory (OOM)
-- Lower `image_size` to 512 or 640
-- Use `torch_dtype=torch.bfloat16` (enabled by default)
-- A100 40GB handles Gundam mode (tiled high-res)
-
-### Performance Optimization
-- Ensure Flash Attention is properly installed
-- Use BF16 for A100 tensor core acceleration
-- Enable `crop_mode=True` for better layout preservation
-
-## Advanced Usage
-
-### Batch Processing
-
-Clone the official repository for batch processing scripts:
-
-```bash
-git clone https://github.com/deepseek-ai/DeepSeek-OCR
-cd DeepSeek-OCR
-# Follow batch processing instructions
-```
-
-### Evaluation
-
-Run benchmarks on Fox/OmniDocBench:
-
-```bash
-cd DeepSeek-OCR/eval
-# Follow evaluation instructions to test compression ratios
-```
-
 ## Citation
-
-If you use DeepSeek-OCR in your research, please cite:
 
 ```bibtex
 @article{wei2024deepseek,
