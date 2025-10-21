@@ -1,6 +1,6 @@
 # DeepSeek-OCR: Running on a Single A100 40GB GPU
 
-Hands-on tutorial showing how to run the DeepSeek-OCR model on a single A100 40GB GPU. Based on the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf), this notebook demonstrates how to compress document images to ~100 vision tokens (10-20x fewer than text) and decode with 97% OCR precision at 10x compression ratio.
+Hands-on tutorial showing how to run the DeepSeek-OCR model on a single A100 40GB GPU. Based on the [DeepSeek-OCR paper](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf).
 
 ## Overview
 
